@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Crimson Horizon Foundation — fund the Mars 99 mission, discover its value, and join the one-way crew. Official homepage concept.">
+<title>Crimson Horizon Foundation — Mars 99 Mission</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230B1D3A'/%3E%3Cpath d='M16 6 L18 13 L25 15 L18 17 L16 24 L14 17 L7 15 L14 13 Z' fill='%23E8632C'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --space-deep:#060D1A;
+    --space-navy:#0B1D3A;
+    --space-navy-2:#10264A;
+    --nebula:#5B4B9E;
+    --gold:#E8632C;
+    --gold-soft:#F4A47C;
+    --warm-white:#F5F2EA;
+    --muted:#AAB6C9;
+    --line:rgba(245,242,234,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+  body{
+    font-family:"Segoe UI","Microsoft YaHei","PingFang SC",system-ui,-apple-system,sans-serif;
+    background:var(--space-deep);
+    color:var(--warm-white);
+    line-height:1.65;
+    font-size:1rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:var(--gold-soft);text-decoration:none}
+  a:hover,a:focus-visible{text-decoration:underline}
+  .skip-link{
+    position:absolute;left:-9999px;top:0;z-index:100;
+    background:var(--gold);color:var(--space-deep);font-weight:700;
+    padding:.6rem 1rem;border-radius:0 0 6px 0;
+  }
+  .skip-link:focus{left:0}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ===== Logo banner & header ===== */
+  .site-header{background:var(--space-deep);border-bottom:1px solid var(--line)}
+  .logo-banner{display:flex;align-items:center;gap:14px;padding:18px 0 14px}
+  .logo-mark{flex:0 0 auto}
+  .logo-text h1{font-size:1.28rem;letter-spacing:.02em;line-height:1.25;color:var(--warm-white)}
+  .logo-text .logo-name{display:block}
+  .logo-text .logo-name strong{color:var(--gold)}
+  .logo-text .tagline{
+    font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--muted);margin-top:3px;
+  }
+  .main-nav{border-top:1px solid var(--line)}
+  .main-nav ul{
+    list-style:none;display:flex;flex-wrap:wrap;gap:4px;align-items:center;padding:10px 0;
+  }
+  .main-nav a{
+    display:inline-block;padding:.45rem .85rem;font-size:.92rem;
+    color:var(--warm-white);border-radius:4px;
+  }
+  .main-nav a:hover,.main-nav a:focus-visible{background:rgba(232,99,44,.12);color:var(--gold-soft);text-decoration:none}
+  .main-nav a[aria-current="page"]{color:var(--gold);font-weight:700}
+  .nav-donate{margin-left:auto}
+  .nav-donate a{
+    background:var(--gold);color:var(--space-deep);font-weight:700;border-radius:999px;padding:.45rem 1.2rem;
+  }
+  .nav-donate a:hover,.nav-donate a:focus-visible{background:var(--gold-soft);text-decoration:none}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--line);color:var(--warm-white);
+    font-size:1rem;font-family:inherit;min-height:44px;min-width:44px;
+    padding:.5rem .9rem;border-radius:6px;cursor:pointer;margin-left:auto;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;min-height:520px;display:flex;align-items:center;
+    background:var(--space-navy);overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(90deg, rgba(6,13,26,.92) 0%, rgba(6,13,26,.55) 55%, rgba(6,13,26,.15) 100%),
+      linear-gradient(0deg, rgba(6,13,26,.85) 0%, rgba(6,13,26,0) 45%);
+  }
+  .hero-inner{position:relative;z-index:2;padding:72px 24px 96px;max-width:760px}
+  .hero-kicker{font-size:.82rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+  .hero h2{font-size:clamp(2.3rem,5.2vw,3.7rem);line-height:1.12;font-weight:800;letter-spacing:-.01em;margin-bottom:20px}
+  .hero h2 .accent{color:var(--gold)}
+  .hero p.lead{font-size:1.12rem;color:var(--warm-white);max-width:58ch;margin-bottom:30px;opacity:.92}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:.85rem 1.7rem;border-radius:999px;font-weight:700;font-size:1rem;
+    border:1px solid transparent;cursor:pointer;font-family:inherit;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--gold);color:var(--space-deep)}
+  .btn-primary:hover,.btn-primary:focus-visible{background:var(--gold-soft);text-decoration:none}
+  .btn-ghost{border-color:rgba(245,242,234,.45);color:var(--warm-white);background:rgba(6,13,26,.35)}
+  .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--gold);color:var(--gold-soft);text-decoration:none}
+  .btn-link{background:none;color:var(--gold-soft);padding:.85rem .4rem;font-weight:600}
+  .btn-link:hover,.btn-link:focus-visible{color:var(--warm-white);text-decoration:underline}
+  .hero-facts{
+    position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px 0;
+    border-top:1px solid var(--line);margin-top:34px;padding-top:22px;
+  }
+  .hero-facts li{
+    list-style:none;flex:1 1 180px;display:flex;align-items:baseline;gap:10px;
+    font-size:.86rem;color:var(--muted);
+  }
+  .hero-facts li b{display:block;font-size:1.05rem;color:var(--warm-white);font-weight:700}
+
+  /* ===== Sections ===== */
+  section{padding:84px 0}
+  .section-head{margin-bottom:44px;max-width:720px}
+  .section-kicker{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .section-head h3{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;font-weight:800}
+  .section-head p{margin-top:14px;color:var(--muted);font-size:1.02rem}
+
+  .purpose{background:var(--space-navy)}
+  .purpose-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .purpose-item{
+    display:block;color:inherit;text-decoration:none;
+    border-top:2px solid var(--gold);padding:26px 6px 14px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .purpose-item:hover,.purpose-item:focus-visible{background:rgba(232,99,44,.07);transform:translateY(-2px)}
+  .purpose-item svg{margin-bottom:16px}
+  .purpose-item h4{font-size:1.15rem;margin-bottom:10px}
+  .purpose-item p{color:var(--muted);font-size:.95rem}
+  .purpose-item .item-more{display:inline-block;margin-top:12px;font-size:.85rem;color:var(--gold-soft)}
+
+  /* ===== Timeline ===== */
+  .timeline-grid{display:grid;grid-template-columns:110px 1fr;column-gap:26px;row-gap:26px}
+  .tl-row{display:contents}
+  .tl-node{text-align:right;padding-top:2px;font-size:.9rem;color:var(--muted);font-weight:600}
+  .tl-axis{position:relative;padding:0 0 0 22px}
+  .tl-axis::before{
+    content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;
+    background:linear-gradient(180deg,var(--gold),rgba(232,99,44,.25));
+  }
+  .tl-dot{
+    position:absolute;left:-5px;top:6px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:2px solid var(--space-deep);
+  }
+  .tl-card h5{font-size:1.02rem;margin-bottom:4px}
+  .tl-card p{color:var(--muted);font-size:.92rem}
+
+  /* ===== Why section ===== */
+  .why{background:var(--space-deep)}
+  .why-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+  .why-list{list-style:none;display:grid;gap:22px}
+  .why-list li{display:grid;grid-template-columns:auto 1fr;gap:16px}
+  .why-list .num{
+    color:var(--gold);font-weight:800;font-size:1.05rem;
+    border:1px solid rgba(232,99,44,.5);border-radius:50%;
+    width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  }
+  .why-list h5{font-size:1.05rem;margin-bottom:4px}
+  .why-list p{color:var(--muted);font-size:.94rem}
+  .why-more{margin-top:8px}
+  .why-more a{color:var(--gold-soft);text-decoration:none;font-size:.88rem}
+  .why-more a:hover,.why-more a:focus-visible{text-decoration:underline}
+  .quote-panel{
+    background:var(--space-navy);border:1px solid var(--line);border-radius:10px;
+    padding:30px 28px;position:sticky;top:24px;
+  }
+  .quote-panel blockquote{
+    font-size:1.12rem;line-height:1.6;font-weight:600;color:var(--warm-white);
+    border-left:3px solid var(--gold);padding-left:18px;margin-bottom:14px;
+  }
+  .quote-panel cite{font-style:normal;color:var(--muted);font-size:.88rem}
+
+  /* ===== Apply / Donate banners ===== */
+  .apply{
+    background:
+      linear-gradient(120deg, rgba(232,99,44,.16), rgba(232,99,44,.03)),
+      var(--space-navy);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .apply-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .apply-inner h3{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;max-width:560px}
+  .apply-inner h3 .accent{color:var(--gold)}
+  .apply-inner p{color:var(--muted);margin-top:10px;max-width:560px}
+  .donate{
+    background:
+      linear-gradient(120deg, rgba(91,75,158,.20), rgba(11,29,58,.55)),
+      var(--space-navy-2);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+
+  /* ===== Footer ===== */
+  .site-footer{background:#04080F;border-top:1px solid var(--line);padding:56px 0 0}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;padding-bottom:44px}
+  .footer-qr{margin-top:18px}
+  .footer-qr img{width:150px;border-radius:8px;border:1px solid var(--line)}
+  .footer-qr figcaption{margin-top:8px;font-size:.78rem;color:var(--muted);max-width:150px;line-height:1.4}
+  .footer-brand .logo-text h2{font-size:1.05rem;color:var(--warm-white)}
+  .footer-brand p{color:var(--muted);font-size:.9rem;margin-top:12px;max-width:34ch}
+  .footer-col h6{font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .footer-col ul{list-style:none;display:grid;gap:10px}
+  .footer-col a{color:var(--warm-white);font-size:.92rem}
+  .footer-col a:hover{color:var(--gold-soft)}
+  .footer-bottom{
+    border-top:1px solid var(--line);padding:18px 0;
+    display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
+    font-size:.82rem;color:var(--muted);
+  }
+
+  /* ===== News list ===== */
+  .news{background:var(--space-deep)}
+  .news-list{display:grid}
+  .news-item{display:grid;grid-template-columns:140px 1fr;gap:22px;padding:24px 0;border-top:1px solid var(--line)}
+  .news-item:last-child{border-bottom:1px solid var(--line)}
+  .news-item time{font-size:.85rem;color:var(--gold-soft);font-weight:600;padding-top:3px}
+  .news-item h4{font-size:1.06rem;margin-bottom:6px}
+  .news-item p{color:var(--muted);font-size:.94rem}
+
+  /* ===== Responsive ===== */
+  @media (max-width:900px){
+    .purpose-grid{grid-template-columns:1fr;gap:30px}
+    .why-grid{grid-template-columns:1fr;gap:34px}
+    .quote-panel{position:static}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:720px){
+    .nav-toggle{display:inline-flex}
+    .main-nav ul{display:none;flex-direction:column;align-items:stretch;padding:6px 0 14px}
+    .main-nav.open ul{display:flex}
+    .main-nav a{display:block;padding:.7rem .4rem;border-bottom:1px solid var(--line);border-radius:0}
+    .nav-donate{margin-left:0}
+    .logo-text .tagline{font-size:.875rem}
+    .hero{min-height:480px}
+    .hero-inner{padding:56px 24px 72px}
+    .hero-kicker{font-size:.875rem}
+    .hero-facts li{font-size:.9rem}
+    .footer-bottom{font-size:.875rem}
+    .hero-facts li{flex:1 1 100%}
+    .timeline-grid{grid-template-columns:1fr;row-gap:0}
+    .tl-node{text-align:left;padding:0;margin-bottom:4px}
+    .tl-axis{padding-bottom:26px;margin-bottom:6px}
+    .footer-grid{grid-template-columns:1fr;gap:32px}
+    .news-item{grid-template-columns:1fr;gap:6px}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" role="banner">
+  <div class="wrap">
+    <div class="logo-banner">
+      <svg class="logo-mark" width="46" height="46" viewBox="0 0 46 46" role="img" aria-label="Crimson Horizon Foundation logo: an orange star over a blue planet ring">
+        <circle cx="23" cy="23" r="21" fill="#0B1D3A" stroke="#E8632C" stroke-width="1.4"/>
+        <ellipse cx="23" cy="23" rx="14.5" ry="5.5" fill="none" stroke="#E8632C" stroke-width="1.3" transform="rotate(-18 23 23)"/>
+        <path d="M23 10 L25.6 19.4 L35 22 L25.6 24.6 L23 34 L20.4 24.6 L11 22 L20.4 19.4 Z" fill="#E8632C"/>
+      </svg>
+      <div class="logo-text">
+        <h1><span class="logo-name">Crimson Horizon <strong>Foundation</strong></span></h1>
+        <span class="tagline">Reach beyond · Colonise tomorrow</span>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" onclick="toggleNav(this)">Menu</button>
+    </div>
+    <nav class="main-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#main" aria-current="page">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#mission">Mars 99 Mission</a></li>
+        <li><a href="#why">Why Mars</a></li>
+        <li><a href="#join">Join the Crew</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-donate"><a href="#donate">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="main" aria-label="Mars 99 mission hero">
+  <img class="hero-bg" src="assets/hero.jpg" alt="A dark red planet glowing against deep space, with faint purple nebulae and a small spacecraft in the foreground">
+  <div class="wrap hero-inner">
+    <p class="hero-kicker">Mars 99 · One-Way Mission · Now Recruiting</p>
+    <h2>One Mission.<br>One Way.<span class="accent"> Humanity&rsquo;s next step.</span></h2>
+    <p class="lead">Crimson Horizon Foundation is preparing the Mars 99 mission — a televised, one-way journey to establish a permanent human settlement on Mars. Fund it, follow it, or be part of the crew.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#donate">Donate to Mars 99</a>
+      <a class="btn btn-ghost" href="#join">Apply to Join</a>
+      <a class="btn btn-link" href="#mission">Learn about the mission</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <ul class="hero-facts">
+      <li><span><b>Mars 99</b>Flagship settlement mission</span></li>
+      <li><span><b>One-way</b>Permanent colonist journey</span></li>
+      <li><span><b>TV-featured</b>Global interview auditions</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="purpose" id="about" aria-labelledby="purpose-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-kicker">Why we exist</p>
+      <h3 id="purpose-title">Three purposes, one mission</h3>
+      <p>Everything on this site serves one of three goals: funding the journey, explaining its value, and recruiting the people who will live it.</p>
+    </div>
+    <div class="purpose-grid">
+      <a class="purpose-item" href="#donate">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="15.5" stroke="#E8632C" stroke-width="1.6"/>
+          <path d="M20 11 L22 18 L29 20 L22 22 L20 29 L18 22 L11 20 L18 18 Z" fill="#E8632C"/>
+        </svg>
+        <h4>Fund the Mission</h4>
+        <p>Every donation accelerates research, life-support systems, and launch preparations. Transparent budgets and live mission dashboards keep donors close to the journey.</p>
+        <span class="item-more" aria-hidden="true">Jump to donation &rarr;</span>
+      </a>
+      <a class="purpose-item" href="#mission">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="15.5" stroke="#E8632C" stroke-width="1.6"/>
+          <path d="M13 22 L20 12 L27 22 Z" fill="none" stroke="#E8632C" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M11 27 H29" stroke="#E8632C" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <h4>Discover the Value</h4>
+        <p>Science, technology and inspiration: a permanent Mars presence advances research, drives innovation on Earth, and gives humanity a reason to look up.</p>
+        <span class="item-more" aria-hidden="true">See the roadmap &rarr;</span>
+      </a>
+      <a class="purpose-item" href="#join">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 6 C20 6 12 17 12 24 a8 8 0 0 0 16 0 C28 17 20 6 20 6 Z" fill="none" stroke="#E8632C" stroke-width="1.6"/>
+          <circle cx="20" cy="24" r="3.4" fill="#E8632C"/>
+        </svg>
+        <h4>Join the Crew</h4>
+        <p>Applications open through a global, televised interview series. Submit your profile, prove your resilience, and take one of the seats on the one-way journey.</p>
+        <span class="item-more" aria-hidden="true">Start an application &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="mission" aria-labelledby="mission-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-kicker">Mission roadmap</p>
+      <h3 id="mission-title">The road to Mars 99</h3>
+    </div>
+    <div class="timeline-grid">
+      <div class="tl-row">
+        <div class="tl-node">Phase 01</div>
+        <div class="tl-axis">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h5>Design &amp; Funding</h5>
+            <p>Systems architecture, habitat design and the first public fundraising round for Mars 99.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-node">Phase 02</div>
+        <div class="tl-axis">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h5>Global Auditions</h5>
+            <p>An international television interview series selects candidates for their skill, spirit and resilience.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-node">Phase 03</div>
+        <div class="tl-axis">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h5>Crew Training</h5>
+            <p>Two years of isolation, medical and technical training for the one-way journey and settlement.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-node">Phase 04</div>
+        <div class="tl-axis">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="tl-card">
+            <h5>Launch &amp; Settlement</h5>
+            <p>The crew departs, lands and begins building the first permanent human settlement on Mars.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="purpose" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-kicker">Why a one-way mission</p>
+      <h3 id="why-title">Why Mars? Why now?</h3>
+    </div>
+    <div class="why-grid">
+      <ul class="why-list">
+        <li>
+          <span class="num" aria-hidden="true">1</span>
+          <div>
+            <h5>Science needs a permanent presence</h5>
+            <p>A lasting settlement turns Mars from a destination into a laboratory — geology, climate and biology studied continuously, not in short visits.</p>
+            <p class="why-more"><a href="https://science.nasa.gov/mars/" target="_blank" rel="noopener">Read NASA&rsquo;s Mars exploration programme <span aria-hidden="true">&#8599;</span></a></p>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">2</span>
+          <div>
+            <h5>Technology that comes home</h5>
+            <p>Closed-loop life support, food production and extreme-environment engineering drive breakthroughs that improve life on Earth.</p>
+            <p class="why-more"><a href="https://www.esa.int/" target="_blank" rel="noopener">Explore ESA&rsquo;s space-technology work <span aria-hidden="true">&#8599;</span></a></p>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">3</span>
+          <div>
+            <h5>Inspiration for everyone</h5>
+            <p>A shared goal on a cosmic scale gives the world a story to follow — and shows that ordinary people can choose extraordinary futures.</p>
+            <p class="why-more"><a href="https://www.marssociety.org/" target="_blank" rel="noopener">Join The Mars Society&rsquo;s community <span aria-hidden="true">&#8599;</span></a></p>
+          </div>
+        </li>
+      </ul>
+      <aside class="quote-panel" aria-label="Mission statement">
+        <blockquote>&ldquo;We are not leaving Earth behind. We are extending it — one crew, one settlement, one way.&rdquo;</blockquote>
+        <cite>— Mission Statement, Crimson Horizon Foundation</cite>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="news" id="news" aria-labelledby="news-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-kicker">Latest updates</p>
+      <h3 id="news-title">News from the frontier</h3>
+      <p>Milestones on the road to launch — new entries posted as Mars 99 progresses.</p>
+    </div>
+    <div class="news-list">
+      <article class="news-item">
+        <time datetime="2026-10">October 2026</time>
+        <div>
+          <h4>Mars 99 enters Phase 02 — global audition series announced</h4>
+          <p>The televised crew search opens across 24 countries; applications now screened for resilience and field skills.</p>
+        </div>
+      </article>
+      <article class="news-item">
+        <time datetime="2026-09">September 2026</time>
+        <div>
+          <h4>Habitat prototype passes a 365-day closed-loop test</h4>
+          <p>The sealed habitat recycles air, water and food for a full year, clearing the next safety gate for the settlement design.</p>
+        </div>
+      </article>
+      <article class="news-item">
+        <time datetime="2026-08">August 2026</time>
+        <div>
+          <h4>Public donation round reaches 40% of its launch-target goal</h4>
+          <p>Individual donors and corporate sponsors together fund the first full-scale life-support test series.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="join" aria-labelledby="apply-title">
+  <div class="wrap apply-inner">
+    <div>
+      <h3 id="apply-title">The crew is chosen on <span class="accent">live television</span>.</h3>
+      <p>Applications are open. Follow the audition series, meet the candidates, and take your shot at a seat on Mars 99.</p>
+    </div>
+    <div>
+      <a class="btn btn-primary" href="mailto:apply@crimsonhorizon.org?subject=Mars%2099%20Application">Apply for Mars 99</a>
+    </div>
+  </div>
+</section>
+
+<section class="donate" id="donate" aria-labelledby="donate-title">
+  <div class="wrap apply-inner">
+    <div>
+      <h3 id="donate-title">Every kilometre <span class="accent">starts with your support.</span></h3>
+      <p>Donations fund life-support systems, habitat testing and launch preparations. Write to us to set up a one-off gift or a monthly commitment.</p>
+    </div>
+    <div>
+      <a class="btn btn-primary" href="mailto:donate@crimsonhorizon.org?subject=Donation%20for%20Mars%2099">Donate to Mars 99</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">
+          <h2>Crimson Horizon <strong style="color:var(--gold)">Foundation</strong></h2>
+        </div>
+        <p>Preparing the Mars 99 mission: fund it, discover its value, and join the one-way crew. Reach beyond — colonise tomorrow.</p>
+      </div>
+      <div class="footer-col">
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="#mission">Mars 99 Mission</a></li>
+          <li><a href="#why">Why Mars</a></li>
+          <li><a href="#join">Join the Crew</a></li>
+          <li><a href="#news">News &amp; Updates</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Related Organisations</h6>
+        <ul>
+          <li><a href="https://www.nasa.gov/" target="_blank" rel="noopener">NASA <span aria-hidden="true">&#8599;</span></a></li>
+          <li><a href="https://www.spacex.com/" target="_blank" rel="noopener">SpaceX <span aria-hidden="true">&#8599;</span></a></li>
+          <li><a href="https://www.marssociety.org/" target="_blank" rel="noopener">The Mars Society <span aria-hidden="true">&#8599;</span></a></li>
+          <li><a href="https://www.esa.int/" target="_blank" rel="noopener">ESA <span aria-hidden="true">&#8599;</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="mailto:contact@crimsonhorizon.org">contact@crimsonhorizon.org</a></li>
+          <li><a href="#donate">Donate now</a></li>
+          <li><a href="mailto:faq@crimsonhorizon.org?subject=Question%20about%20Mars%2099">FAQ</a></li>
+        </ul>
+        <figure class="footer-qr">
+          <img src="assets/wecom-qr.jpg" alt="WeCom contact card for Ziye Guo, Hebei University of Technology Langfang Campus">
+          <figcaption>Scan to reach the course team (Ziye Guo, Group 30)</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Crimson Horizon Foundation. Coursework design mockup.</span>
+      <span>Last updated: October 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleNav(btn){
+    var nav = document.getElementById("site-nav");
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+</script>
+</body>
+</html>
